@@ -1,0 +1,32 @@
+class VigilanteApp:
+    def __init__(self):
+        self.slogan = "Um Paço a frente"
+        self.alerts = []
+        self.users = set()
+        self.partners = ["Seguradoras", "Fabricantes de automóveis"]
+        self.is_free = True
+        self.trial_days = 7
+
+    def register_driver(self, driver_id):
+        self.users.add(driver_id)
+
+    def report_danger(self, location, description):
+        alert = {"location": location, "description": description}
+        self.alerts.append(alert)
+        self.notify_drivers(location, description)
+
+    def notify_drivers(self, location, description):
+        # Simulação de notificação clara e instantânea
+        print(f"ALERTA: {description} em {location}")
+
+    def get_alerts(self):
+        return self.alerts
+
+    def launch_strategy(self):
+        print(f"Teste de {self.trial_days} dias ativo para novos utilizadores.")
+
+# Exemplo de uso
+app = VigilanteApp()
+app.register_driver("driver_001")
+app.report_danger("Avenida Central", "Acidente na faixa direita")
+app.launch_strategy()
